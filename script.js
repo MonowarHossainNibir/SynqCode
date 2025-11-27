@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menuToggle")
   const navMenu = document.getElementById("navMenu")
+  const navLinks = navMenu ? navMenu.querySelectorAll(".nav-link") : []
 
   if (menuToggle) {
     menuToggle.addEventListener("click", () => {
@@ -10,26 +11,94 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // Close menu when a link is clicked
-  const navLinks = navMenu ? navMenu.querySelectorAll("a") : []
+  // Close menu and update active link when a link is clicked
   navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (e) => {
       menuToggle.classList.remove("active")
       navMenu.classList.remove("active")
+
+      navLinks.forEach((l) => l.classList.remove("active"))
+      link.classList.add("active")
     })
   })
 
-  // Set active navigation link
-  const currentLocation = location.href
-  const menuItems = navMenu ? navMenu.querySelectorAll("a") : []
-  menuItems.forEach((item) => {
-    if (item.href === currentLocation) {
-      item.classList.add("active")
-    } else {
-      item.classList.remove("active")
-    }
-  })
+  // Set initial active link based on scroll position
+  updateActiveNavLink()
 })
+
+function updateActiveNavLink() {
+  const navLinks = document.querySelectorAll(".nav-link")
+  const sections = document.querySelectorAll("section[id]")
+
+  window.addEventListener("scroll", () => {
+    let current = ""
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop
+      const sectionHeight = section.clientHeight
+
+      if (window.pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute("id")
+      }
+    })
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active")
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active")
+      }
+    })
+  })
+}
+
+const portfolioCarousel = (() => {
+  const container = document.querySelector(".carousel-container")
+  const items = document.querySelectorAll(".carousel-item")
+  const prevBtn = document.getElementById("prevBtn")
+  const nextBtn = document.getElementById("nextBtn")
+  const indicatorsContainer = document.getElementById("indicators")
+  let currentIndex = 0
+
+  // Create indicators
+  items.forEach((_, index) => {
+    const indicator = document.createElement("div")
+    indicator.className = `indicator ${index === 0 ? "active" : ""}`
+    indicator.addEventListener("click", () => goToSlide(index))
+    indicatorsContainer.appendChild(indicator)
+  })
+
+  function updateCarousel() {
+    items.forEach((item, index) => {
+      item.classList.toggle("active", index === currentIndex)
+    })
+
+    const indicators = document.querySelectorAll(".indicator")
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle("active", index === currentIndex)
+    })
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % items.length
+    updateCarousel()
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length
+    updateCarousel()
+  }
+
+  function goToSlide(index) {
+    currentIndex = index
+    updateCarousel()
+  }
+
+  prevBtn.addEventListener("click", prevSlide)
+  nextBtn.addEventListener("click", nextSlide)
+
+  // Auto-rotate carousel every 6 seconds
+  setInterval(nextSlide, 6000)
+})()
 
 // Contact Form Handling
 const contactForm = document.getElementById("contactForm")
@@ -37,7 +106,6 @@ if (contactForm) {
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault()
 
-    // Get form data
     const name = document.getElementById("name").value.trim()
     const email = document.getElementById("email").value.trim()
     const company = document.getElementById("company").value.trim()
@@ -45,7 +113,6 @@ if (contactForm) {
     const message = document.getElementById("message").value.trim()
     const privacy = document.getElementById("privacy").checked
 
-    // Validation
     if (!name || !email || !service || !message) {
       showFormMessage("Please fill in all required fields", "error")
       return
@@ -61,13 +128,10 @@ if (contactForm) {
       return
     }
 
-    // Simulate form submission
     showFormMessage("Thank you for your message! We will get back to you soon.", "success")
 
-    // Reset form
     contactForm.reset()
 
-    // In a real application, you would send this data to a backend server
     console.log({
       name,
       email,
@@ -79,20 +143,17 @@ if (contactForm) {
   })
 }
 
-// Helper function to validate email
 function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   return emailRegex.test(email)
 }
 
-// Helper function to show form messages
 function showFormMessage(message, type) {
   const formMessage = document.getElementById("formMessage")
   if (formMessage) {
     formMessage.textContent = message
     formMessage.className = `form-message ${type}`
 
-    // Hide message after 5 seconds
     setTimeout(() => {
       formMessage.className = "form-message"
     }, 5000)
@@ -112,7 +173,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   })
 })
 
-// Add animation on scroll
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -100px 0px",
@@ -127,8 +187,7 @@ const observer = new IntersectionObserver((entries) => {
   })
 }, observerOptions)
 
-// Observe service cards, portfolio items, and team members
-document.querySelectorAll(".service-card, .portfolio-item, .team-member, .reason-item").forEach((el) => {
+document.querySelectorAll(".service-card, .team-member, .value-card").forEach((el) => {
   el.style.opacity = "0"
   el.style.transform = "translateY(20px)"
   el.style.transition = "opacity 0.6s ease, transform 0.6s ease"
@@ -152,7 +211,6 @@ function animateCounter(element, target, duration = 2000) {
   }, 16)
 }
 
-// Trigger counter animation when stats section is visible
 const statsSection = document.querySelector(".stats")
 if (statsSection) {
   let animated = false
@@ -173,24 +231,6 @@ if (statsSection) {
 const scrollTopBtn = document.createElement("button")
 scrollTopBtn.innerHTML = "↑"
 scrollTopBtn.className = "scroll-top-btn"
-scrollTopBtn.style.cssText = `
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    font-size: 24px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    z-index: 99;
-`
-
 document.body.appendChild(scrollTopBtn)
 
 window.addEventListener("scroll", () => {
@@ -206,14 +246,4 @@ scrollTopBtn.addEventListener("click", () => {
     top: 0,
     behavior: "smooth",
   })
-})
-
-scrollTopBtn.addEventListener("mouseenter", () => {
-  scrollTopBtn.style.background = "var(--secondary-color)"
-  scrollTopBtn.style.transform = "scale(1.1)"
-})
-
-scrollTopBtn.addEventListener("mouseleave", () => {
-  scrollTopBtn.style.background = "var(--primary-color)"
-  scrollTopBtn.style.transform = "scale(1)"
 })

@@ -1,2 +1,0 @@
-# SynqCode
-Our Personal Project

@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SynqCode - Software Development & Enterprise Solutions</title>
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <!-- Added Vanta.js scripts for background animation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
@@ -16,20 +20,23 @@
         <div class="nav-logo">
           <a href="#home">
            
-            <span class="logo-text">SynqCode</span>
+<span class="logo-text">
+  Synq<span class="highlight">Code</span>
+</span>
           </a>
         </div>
-        <div class="menu-toggle" id="menuToggle">
+        <div class="menu-toggle" id="menuToggle"> 
           <span></span>
           <span></span>
           <span></span>
         </div>
         <ul class="nav-menu" id="navMenu">
           <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About Us</a></li>
+         
           <li><a href="#services" class="nav-link">Services</a></li>
+           <li><a href="#about" class="nav-link">About Us</a></li>
           <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="#team" class="nav-link">Team</a></li>
+          <!-- <li><a href="#team" class="nav-link">Team</a></li> -->
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </div>
@@ -40,10 +47,11 @@
       <!-- Added id="hero-vanta" to apply animation -->
       <div id="hero-vanta" class="hero-background"></div>
       <div class="hero-content">
-        <h1 class="hero-title">Synchronizing Innovation with Code</h1>
+        <h1 class="hero-title">Syncing Technology with </h1>
+        <h1 class="hero-title">Your Vision</h1>
         <p class="hero-subtitle">
-          Transforming businesses through cutting-edge software solutions, ERP
-          implementation, and machine learning expertise
+          Transforming businesses through cutting-edge software solutions, 
+          <br>Odoo & ERP implementation and Machine learning expertise
         </p>
         <div class="hero-buttons">
           <a href="#services" class="btn btn-primary">Explore Services</a>
@@ -61,45 +69,61 @@
         </p>
 
         <div class="services-grid">
+          
+
           <div class="service-card">
-            <div class="service-icon">💻</div>
-            <h3>Software Development</h3>
+            <div class="service-icon"><img src="odoo_logo.png" style="width: 75px; height: 30px;" alt="App image"></div>
+            <h3>Odoo Development</h3>
             <p>
-              Custom applications built with modern technologies, ensuring
-              scalability, security, and optimal performance for your
-              enterprise.
+            Optimize Your Business with Custom Odoo Solutions. Automate tasks, centralize data, and connect every department in one intuitive platform.
             </p>
           </div>
 
           <div class="service-card">
-            <div class="service-icon">⚙️</div>
-            <h3>ERP Implementation</h3>
+            <div class="service-icon">
+              <img src="erp.png" style="width: 60px; height: 60px;" alt="ERP image"></div>
+            <h3>Next-Gen ERP</h3>
             <p>
-              Streamline your operations with integrated enterprise resource
-              planning systems designed for efficiency and data-driven decision
+              Streamline Your Operations with Integrated Enterprise Resource
+              Planning Systems Designed for Efficiency and Data-driven decision
               making.
             </p>
           </div>
-
           <div class="service-card">
-            <div class="service-icon">🤖</div>
-            <h3>AI & Machine Learning</h3>
+            <div class="service-icon">💻</div>
+            <h3>Web Development</h3>
             <p>
-              Leverage artificial intelligence to automate processes, gain
-              insights from data, and create intelligent solutions for complex
-              challenges.
+              Custom Web Applications built with Modern Technologies, ensuring
+              Scalability, Security, and Optimal Performance for your
+              Enterprise.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <img src="app.png" style="width: 60px; height: 60px;" alt="App image"></div>
+            <h3>Custom App Development</h3>
+            <p>
+             iOS & Android solutions built with cutting-edge technology
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><img src="ecommerce.png" style="width: 60px; height: 60px;" alt="App image"></div>
+            <h3>E-Commerce Platform</h3>
+            <p>
+              Scale Your Brand. Simplify Your Backend. One Platform for Sales, Traffic, and Payments.
             </p>
           </div>
 
           <div class="service-card">
-            <div class="service-icon">🏗️</div>
-            <h3>System Design & Architecture</h3>
+            <div class="service-icon"><img src="video.png" style="width: 60px; height: 60px;" alt="ERP image"></div>
+            <h3>Video Conferencing</h3>
             <p>
-              Build robust, scalable systems with expert architectural guidance
-              ensuring reliability, performance, and long-term maintainability.
+             
+Secure, low-latency communication tools
             </p>
           </div>
-        </div>
+        
+        
       </div>
     </section>
 
@@ -108,19 +132,19 @@
       <div class="container">
         <div class="stats-grid">
           <div class="stat-item">
-            <h3 class="stat-number">150+</h3>
+            <h3 class="stat-number">17+</h3>
             <p class="stat-label">Projects Delivered</p>
           </div>
           <div class="stat-item">
-            <h3 class="stat-number">50+</h3>
+            <h3 class="stat-number">13+</h3>
             <p class="stat-label">Enterprise Clients</p>
           </div>
           <div class="stat-item">
-            <h3 class="stat-number">12+</h3>
+            <h3 class="stat-number">2+</h3>
             <p class="stat-label">Years of Experience</p>
           </div>
           <div class="stat-item">
-            <h3 class="stat-number">98%</h3>
+            <h3 class="stat-number">98<span>%</span></h3>
             <p class="stat-label">Client Satisfaction</p>
           </div>
         </div>
@@ -136,24 +160,17 @@
         </p>
 
         <div class="about-content">
-          <p>
-            SynqCode is a premier software development and enterprise solutions
-            company dedicated to transforming businesses through technology
-            innovation. With over 12 years of industry experience, we've helped
-            50+ enterprises achieve their digital transformation goals.
-          </p>
-          <p>
-            Our team of expert engineers, architects, and consultants
-            specializes in delivering cutting-edge solutions across software
-            development, ERP implementation, machine learning, and enterprise
-            consulting.
-          </p>
-          <p>
-            We believe in building long-term partnerships with our clients,
-            understanding their unique challenges, and delivering tailored
-            solutions that drive measurable business outcomes.
-          </p>
-        </div>
+  <p>
+    <strong>SynqCode</strong> is a leading software development and enterprise solutions powerhouse, dedicated to transforming businesses through innovative technology. With over 2 years of hands-on industry experience, we’ve empowered 13+ enterprises to achieve remarkable digital transformation success.
+  </p>
+  <p>
+    Our dynamic team of engineers, architects, and consultants excels at delivering next-generation solutions in <strong>software development, Odoo & ERP implementation, E-commerce, and Video Conferencing</strong>, helping businesses thrive in the digital era.
+  </p>
+  <p>
+    At SynqCode, we believe in forging <strong>long-term partnerships</strong> with our clients—understanding their unique challenges and crafting tailor-made solutions that drive tangible, measurable business growth.
+  </p>
+</div>
+
 
         <div class="values-grid">
           <div class="value-card">
@@ -343,7 +360,7 @@
     </section>
 
     <!-- Team Section -->
-    <section id="team" class="team-section">
+    <!-- <section id="team" class="team-section">
       <div class="container">
         <h2 class="section-title">Our Expert Team</h2>
         <p class="section-subtitle">
@@ -454,7 +471,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- CTA Section -->
     <section class="cta">
@@ -486,7 +503,7 @@
 
             <div class="contact-item">
               <h4>📞 Phone</h4>
-              <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+              <p><a href="tel:+8801638619200">+880 1638619200</a></p>
             </div>
 
             <div class="contact-item">
@@ -497,7 +514,7 @@
             <div class="contact-item">
               <h4>📍 Address</h4>
               <p>
-                123 Tech Street<br />San Francisco, CA 94105<br />United States
+                18/34 Sontek Main Rd<br />Jatrabari, Dhaka 1236<br />Bangladesh
               </p>
             </div>
 
@@ -505,8 +522,9 @@
               <h4>Follow Us</h4>
               <div class="social-icons">
                 <a href="#" class="social-icon">LinkedIn</a>
-                <a href="#" class="social-icon">Twitter</a>
-                <a href="#" class="social-icon">GitHub</a>
+                <a href="https://www.facebook.com/SynqCode/" class="social-icon">Facebook</a>
+                <a href="https://www.instagram.com/synqcode" class="social-icon">Instagram</a>
+              
               </div>
             </div>
           </div>
@@ -538,13 +556,13 @@
                 <label for="service">Service Type *</label>
                 <select id="service" required>
                   <option value="">Select a service</option>
-                  <option value="software">Software Development</option>
-                  <option value="erp">ERP Implementation</option>
-                  <option value="aiml">AI & Machine Learning</option>
-                  <option value="architecture">
-                    System Design & Architecture
-                  </option>
-                  <option value="consulting">Enterprise Consulting</option>
+                  <option value="odoo">Odoo Development</option>
+                  <option value="erp">Next-Gen ERP</option>
+                  <option value="web">Web Development</option>
+                  <option value="app">Custom App Development</option>
+                  <option value="ecommerce">E-Commerce Platform</option>
+                  <option value="conference">Video Conferencing</option>
+                  
                 </select>
               </div>
 
@@ -590,19 +608,22 @@
             <h4>Quick Links</h4>
             <ul>
               <li><a href="#home">Home</a></li>
-              <li><a href="#about">About Us</a></li>
+              
               <li><a href="#services">Services</a></li>
+              <li><a href="#about">About Us</a></li>
               <li><a href="#portfolio">Portfolio</a></li>
-              <li><a href="#team">Team</a></li>
+              <!-- <li><a href="#team">Team</a></li> -->
             </ul>
           </div>
           <div class="footer-section">
             <h4>Services</h4>
             <ul>
-              <li><a href="#services">Software Development</a></li>
-              <li><a href="#services">ERP Implementation</a></li>
-              <li><a href="#services">AI & ML Solutions</a></li>
-              <li><a href="#services">System Design</a></li>
+              <li><a href="#services">Odoo Development</a></li>
+              <li><a href="#services">Next-Gen ERP</a></li>
+              <li><a href="#services">Web Development</a></li>
+              <li><a href="#services">Custom App Development</a></li>
+              <li><a href="#services">E-Commerce Platform</a></li>
+              <li><a href="#services">Video Conferencing</a></li>
             </ul>
           </div>
           <div class="footer-section">
@@ -610,15 +631,15 @@
             <p>
               Email: <a href="mailto:info@synqcode.com">info@synqcode.com</a>
             </p>
-            <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            <p>Phone: <a href="tel:+8801638619200">+880 1638619200</a></p>
           </div>
         </div>
         <div class="footer-bottom">
           <p>&copy; 2025 SynqCode. All rights reserved.</p>
           <div class="social-links">
             <a href="#" title="LinkedIn">in</a>
-            <a href="#" title="Twitter">𝕏</a>
-            <a href="#" title="GitHub">⚙️</a>
+            <a href="https://www.facebook.com/SynqCode/" title="Facebook">𝐟</a>
+           
           </div>
         </div>
       </div>

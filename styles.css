@@ -471,17 +471,21 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 .portfolio-image {
   width: 50%;
   height: 350px;
-  overflow: hidden;
- display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center;
   background: var(--dark-tertiary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;               
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .portfolio-image img {
-  width: 50%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 90%;             
+  max-height: 90%;             
+  width: auto;                 
+  height: auto;                
+  object-fit: contain;         
   transition: transform 0.3s ease;
 }
 

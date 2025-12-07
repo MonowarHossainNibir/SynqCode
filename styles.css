@@ -450,9 +450,10 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 .carousel-container {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(133, 109, 109, 0.3);  
 }
-
+ 
 .portfolio-item {
   display: none;
   border-radius: 12px;
@@ -576,6 +577,9 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   justify-content: center;
   margin-top: 30px;
 }
+
+
+
 
 .indicator {
   width: 12px;

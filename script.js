@@ -78,6 +78,7 @@ const portfolioCarousel = (() => {
   const nextBtn = document.getElementById("nextBtn");
   const indicatorsContainer = document.getElementById("indicators");
   let currentIndex = 0;
+  let autoPlayInterval = null;
 
   // Create indicators
   items.forEach((_, index) => {
@@ -112,12 +113,42 @@ const portfolioCarousel = (() => {
     currentIndex = index;
     updateCarousel();
   }
+function startAutoPlay() {
+    if (autoPlayInterval) clearInterval(autoPlayInterval);
+    autoPlayInterval = setInterval(nextSlide, 6000); // 6 seconds 
+  }
 
-  prevBtn.addEventListener("click", prevSlide);
-  nextBtn.addEventListener("click", nextSlide);
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = null;
+    }
+  }
 
-  // Auto-rotate carousel every 6 seconds
-  setInterval(nextSlide, 6000);
+  container.addEventListener("mouseenter", stopAutoPlay);
+  container.addEventListener("mouseleave", startAutoPlay);
+
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    stopAutoPlay();
+    startAutoPlay(); 
+  });
+
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    stopAutoPlay();
+    startAutoPlay();
+  });
+
+  // Start auto-play on load
+  startAutoPlay();
+
+  // Public methods (optional)
+  return {
+    next: nextSlide,
+    prev: prevSlide,
+    goTo: goToSlide
+  };
 })();
 
 // Contact Form Handling

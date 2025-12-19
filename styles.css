@@ -450,9 +450,10 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 .carousel-container {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(133, 109, 109, 0.3);  
 }
-
+ 
 .portfolio-item {
   display: none;
   border-radius: 12px;
@@ -471,14 +472,21 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 .portfolio-image {
   width: 50%;
   height: 350px;
-  overflow: hidden;
   background: var(--dark-tertiary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;               
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .portfolio-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 90%;             
+  max-height: 90%;             
+  width: auto;                 
+  height: auto;                
+  object-fit: contain;         
   transition: transform 0.3s ease;
 }
 
@@ -569,6 +577,9 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   justify-content: center;
   margin-top: 30px;
 }
+
+
+
 
 .indicator {
   width: 12px;
@@ -910,7 +921,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 
 .footer-bottom {
   border-top: 1px solid var(--border-color);
-  padding-top: 30px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -969,7 +980,94 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   background: var(--secondary-color);
   transform: scale(1.1);
 }
+/* Scroll to top button */
+/* Whatsapp button */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 87px; 
+  right: 30px;
+  color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
 
+.whatsapp-btn:hover {
+  transform: scale(1.15);
+}
+
+
+/* Adjust for mobile screens */
+@media (max-width: 480px) {
+  .whatsapp-btn {
+    bottom: 95px; 
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+}
+
+/* Whatsapp button */
+/* follow us */
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-3d {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 
+      0 4px 6px rgba(0,0,0,0.2),         /* normal shadow */
+      0 6px 15px rgba(0,0,0,0.15);       /* deep shadow */
+  
+  transition: transform 0.25s ease, 
+              box-shadow 0.25s ease;
+}
+
+/* 3D Hover Animation */
+.social-3d:hover {
+  transform: translateY(-8px);
+  box-shadow:
+      0 10px 15px rgba(0,0,0,0.25),
+      0 15px 25px rgba(0,0,0,0.15);
+}
+
+/* Platform Colors */
+.linkedin {
+  background: #0A66C2;
+  color: #fff;
+}
+
+.facebook {
+  background: #1877F2;
+  color: #fff;
+}
+
+.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+}
+/* follow us */
 /* Responsive Design */
 @media (max-width: 768px) {
   .menu-toggle {
